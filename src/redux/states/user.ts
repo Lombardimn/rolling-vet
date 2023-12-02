@@ -6,7 +6,7 @@ export const EmptyUserState: UserInfo = {
   id: 0,
   name: '',
   email: '',
-  rol: Roles.ADMIN // Debe ser el tipo, pero para prueba lo dejamos con el valor
+  rol: Roles.USER // Debe ser el tipo, pero para prueba lo dejamos con el valor
 }
 
 export const UserKey = 'user'

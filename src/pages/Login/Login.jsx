@@ -6,10 +6,15 @@ import { useDispatch } from "react-redux"
 import { getMorty } from "../../services"
 import { useEffect } from "react"
 import { Card, Form, Button, Container } from "react-bootstrap"
+import { useState } from "react"
+import { useReduceLogin } from "../../stores"
 
 function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const [logged, setLogged] = useState(false)
+
+  const { loginChange } = useReduceLogin()
 
   useEffect(() => {
     clearLocalStore(UserKey)
@@ -23,14 +28,17 @@ function Login() {
 
       // este seria el proceso normal, pero para el test cargamos los datos a mano
       // dispatch(createUser(result))
-      dispatch(createUser({ ...result, rol: Roles.ADMIN }))
+      dispatch(createUser({ ...result, rol: Roles.USER }))
       navigate(`/${PrivateRoutes.PRIVATE}`, { replace: true })
+      setLogged(!logged)
+      loginChange(logged)
     } catch (error) {
       console.log('Error en getLogin (creacteUser): ', error)
     }
   }
+
   return (
-    <div className="d-flex flex-column  justify-content-center align-items-center w-100 h-100 m-auto">
+    <div className="d-flex align-items-center justify-content-center" style={{ height: '100vh', width: '100vw' }}>
       <Card border="dark" bg="light" text="dark" style={{ width: '20rem' }}>
         <Card.Header>Login</Card.Header>
         <Card.Body>

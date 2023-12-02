@@ -1,10 +1,11 @@
-import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Container, Row, Col, Image } from 'react-bootstrap';
+import { ButtonType } from '../Button';
 
 export const Hero = () => {
   return (
-    <Container>
+    <Container className='container-hero'>
     <Row className='mt-5'>
-      <Col className=''>
+      <Col>
         <Image 
           src="/public/assets/images/fondogris178x180.svg" 
           width={600}
@@ -26,8 +27,18 @@ export const Hero = () => {
           </Row>
           <Row>
             <Col className='ms-2'>
-              <Button className='me-3'>ACCION1</Button>
-              <Button>ACCION1</Button>
+              <ButtonType 
+                types='button' 
+                className='me-3'
+              >
+                ACCION1
+              </ButtonType>
+              <ButtonType 
+                types='button' 
+                className='bg-secondary me-3'
+              >
+                ACCION2
+              </ButtonType>
             </Col>
           </Row>
         </Container>

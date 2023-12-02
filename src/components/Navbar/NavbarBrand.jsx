@@ -1,19 +1,34 @@
-import { useState } from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
+import { useReduceLogin } from '../../stores';
+import { useEffect, useState } from 'react';
 import Login from '../../pages/Login/Login';
+import { ButtonType } from '../Button';
+import { Logout } from '../Logout';
 
 export const NavbarBrand = () => {
   const [showComponent, setShowComponent] = useState(false)
+  const [user, setUser] = useState(null)
+  const { isLogin } = useReduceLogin()
 
   const handleClick = () => {
     setShowComponent(!showComponent)
   }
 
-  console.log(showComponent)
+  useEffect(() => {
+    const userFromStorage = localStorage.getItem('user');
+    if (userFromStorage) {
+      setUser(JSON.parse(userFromStorage))
+    }
+  },[isLogin])
+
   return (
     <>
-      <Navbar expand="lg" className="bg-dark bg-gradient bg-opacity-85">
+      <Navbar 
+        expand="lg" 
+        sticky="top"
+        className="bg-dark bg-gradient bg-opacity-85" 
+      >
         <LinkContainer to="/">
           <Navbar.Brand href="#home" className='text-white'>
             <img
@@ -43,17 +58,30 @@ export const NavbarBrand = () => {
           </Nav>
         </Navbar>
         <Container className='justify-content-end'>
-          <Navbar.Brand className='text-white me-4'>USERNAME@GMAIL.COM</Navbar.Brand>
-          <Button type='button' onClick={handleClick}>Login</Button>
+          <Navbar.Brand className='text-white me-4'>
+            {
+              isLogin
+                ? 'Bienvenido, ' + user?.name
+                : ''
+            }
+          </Navbar.Brand>
+          {
+            isLogin
+              ? <Logout />
+              : <ButtonType 
+                  types='primary' 
+                  handleClick={handleClick} 
+                  className="btn btn-primary"
+                >
+                  Login
+                </ButtonType>
+          }
         </Container>
       </Navbar>
 
       {
         showComponent && (
-          <Login 
-          show={showComponent}
-          onClick={handleClick}
-          />
+          <Login />
         )
       }
     </>
