@@ -16,6 +16,7 @@ const App = () => {
       <Suspense fallback={<>Cargando...</>}>
         <BrowserRouter>
           <RoutesWithNotFounds>
+              {/* <Route path='/' element={<Navigate to={PrivateRoutes.PRIVATE} />} /> */}
               <Route path={PublicRoutes.LANDING} element={<LandingPage />} />
               <Route path={PublicRoutes.LOGIN} element={<Login />} />
               <Route element={<AuthGuard privateValidation={true} />}>

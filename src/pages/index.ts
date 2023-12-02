@@ -1,3 +1,4 @@
+export * from './LandingPage/components';
 export * from './LandingPage';
 export * from './Login';
 export * from './Private/Dashboard';
