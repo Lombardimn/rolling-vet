@@ -1,4 +1,5 @@
 export * from './Button';
+export * from './CTA';
 export * from './Card';
 export * from './Footer';
 export * from './Hero';
