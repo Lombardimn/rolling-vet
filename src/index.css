@@ -14,6 +14,7 @@ html {
   flex-direction: column;
   align-items: center;
   margin-bottom: 5rem;
+  margin-top: 10rem;
 }
 
 .container-hero {
@@ -25,7 +26,7 @@ html {
 }
 
 .container-card {
-  margin: 5rem 2rem 2rem 2rem;
+  margin: 2rem;
   display: flex;
   flex-direction: row;
   justify-content:space-between;

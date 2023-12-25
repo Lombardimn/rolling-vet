@@ -7,7 +7,7 @@ export const Hero = () => {
     <Row className='mt-5'>
       <Col>
         <Image 
-          src="/public/assets/images/fondogris178x180.svg" 
+          src="/public/assets/images/logo-vetrolling.jpeg" 
           width={600}
           height={600}
           alt="171x180" 
@@ -17,15 +17,16 @@ export const Hero = () => {
         <Container>
           <Row>
             <Col>
-              <h1 className='text-left mt-5 pt-5'>RollingVet</h1>
+              <h1 className='text-left mt-5 pt-5'>Comprometidos con la Salud y Felicidad de tus Mascotas</h1>
             </Col>
           </Row>
           <Row>
             <Col>
-              <p className='text-left mt-2'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non perferendis officia odit fugit aperiam architecto necessitatibus iure nulla maxime commodi?</p>
+              <p className='text-left mt-2'>En VetRolling, nos comprometemos a ofrecer un lugar donde la salud y el bienestar de tus mascotas son lo primero. </p>
+              <p>Nuestro equipo de expertos en salud de mascotas se asegurará de brindar un cuidado excepcional a tus mascotas, asegurándonos de que tus compañeros peludos vivan una vida plena y feliz.</p>
             </Col>
           </Row>
-          <Row>
+          <Row className='mt-5'>
             <Col className='ms-2'>
               <ButtonType 
                 types='button' 

@@ -3,7 +3,7 @@ import { PrivateRoutes, PublicRoutes, Roles } from "../../models"
 import { clearLocalStore } from "../../utilities"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
-import { getMorty } from "../../services"
+// import { getMorty } from "../../services"
 import { useEffect } from "react"
 import { Card, Form, Button, Container } from "react-bootstrap"
 import { useState } from "react"
@@ -24,7 +24,7 @@ function Login() {
 
   const getLogin = async () => {
     try {
-      const result = await getMorty()
+      // const result = await getMorty()
 
       // este seria el proceso normal, pero para el test cargamos los datos a mano
       // dispatch(createUser(result))

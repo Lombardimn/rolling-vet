@@ -1,9 +1,7 @@
-const baseURL = 'https://rickandmortyapi.com/api/'
-const charactersURL = baseURL + 'character/'
+import axios from 'axios'
 
-export const getMorty = () => {
-  return fetch(charactersURL + '2').then((response) => response.json())
-}
+const axiosClient = axios.create({
+  baseURL:'https://vet-rolling.onrender.com'
+})
 
-
-// aqui debo conectar la base de datos !
+export default axiosClient
